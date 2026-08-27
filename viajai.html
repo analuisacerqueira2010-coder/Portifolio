@@ -1,0 +1,2694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Viajaí 🌎 | Seu mundo começa aqui</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Inter,Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7ff;
+    color:#25243a;
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    height:76px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    box-shadow:0 8px 30px rgba(40,30,100,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:29px;
+    font-weight:900;
+    letter-spacing:-1px;
+    color:#5b49e8;
+}
+
+.logo span{
+    color:#ff617c;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#555;
+    font-weight:700;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:#5b49e8;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:570px;
+    padding:110px 20px 100px;
+    text-align:center;
+    color:white;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(67,50,205,.92),
+        rgba(120,91,237,.85),
+        rgba(255,89,125,.82)
+    ),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:rgba(255,255,255,.12);
+    border-radius:50%;
+    top:-180px;
+    left:-100px;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(255,255,255,.1);
+    border-radius:50%;
+    right:-100px;
+    bottom:-150px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 18px;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(10px);
+    border-radius:50px;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:1;
+    margin-bottom:25px;
+    letter-spacing:-3px;
+    text-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.hero h1 span{
+    color:#ffd4dd;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:720px;
+    margin:auto;
+    line-height:1.7;
+    opacity:.95;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:55px auto;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card{
+    background:rgba(255,255,255,.95);
+    padding:35px;
+    border-radius:28px;
+    margin-bottom:32px;
+    box-shadow:
+        0 20px 60px rgba(40,30,100,.08);
+    border:1px solid rgba(255,255,255,.8);
+}
+
+.card-title{
+    font-size:30px;
+    font-weight:900;
+}
+
+.subtitle{
+    color:#777;
+    margin-top:8px;
+    margin-bottom:28px;
+    line-height:1.6;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field label{
+    font-weight:800;
+    margin-bottom:9px;
+}
+
+.field input,
+.field select{
+    padding:16px;
+    border:2px solid #ececf4;
+    border-radius:15px;
+    outline:none;
+    font-size:15px;
+    background:white;
+    transition:.25s;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:#6b58eb;
+    box-shadow:0 0 0 4px rgba(91,73,232,.08);
+}
+
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
+.categories{
+    grid-column:1/-1;
+}
+
+.category-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:11px;
+    margin-top:15px;
+}
+
+.category{
+    padding:13px 17px;
+    border-radius:30px;
+    background:#f1efff;
+    color:#5542d0;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;
+    border:2px solid transparent;
+}
+
+.category:hover{
+    transform:translateY(-2px);
+}
+
+.category input{
+    display:none;
+}
+
+.category:has(input:checked){
+    background:#5b49e8;
+    color:white;
+    box-shadow:0 8px 20px rgba(91,73,232,.25);
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.main-button{
+    grid-column:1/-1;
+    border:0;
+    padding:18px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#5b49e8,#806cf0);
+    color:white;
+    font-size:17px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 12px 25px rgba(91,73,232,.25);
+}
+
+.main-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(91,73,232,.3);
+}
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+#resultado,
+#roteiro,
+#tradutor{
+    display:none;
+}
+
+.country-info{
+    position:relative;
+    overflow:hidden;
+    color:white;
+    border-radius:25px;
+    padding:38px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(70,53,210,.95),
+        rgba(255,91,125,.85)
+    );
+    
+    box-shadow:0 20px 50px rgba(91,73,232,.2);
+}
+
+.country-info h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.country-info p{
+    font-size:17px;
+    line-height:1.7;
+    opacity:.95;
+}
+
+/* =====================================================
+   PLACES
+===================================================== */
+
+.category-block{
+    margin:38px 0;
+}
+
+.category-block h2{
+    font-size:27px;
+    margin-bottom:20px;
+}
+
+.place-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.place{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(20,30,70,.08);
+    border:1px solid #eee;
+    transition:.3s;
+}
+
+.place:hover{
+    transform:translateY(-7px);
+    box-shadow:0 20px 45px rgba(20,30,70,.15);
+}
+
+.place-image{
+    height:220px;
+    position:relative;
+    overflow:hidden;
+}
+
+.place-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.place:hover .place-image img{
+    transform:scale(1.08);
+}
+
+.image-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 45%,
+        rgba(0,0,0,.5)
+    );
+}
+
+.place-body{
+    padding:20px;
+}
+
+.place-body h3{
+    font-size:20px;
+    margin-bottom:9px;
+}
+
+.place-body p{
+    color:#777;
+    line-height:1.55;
+    min-height:50px;
+}
+
+.price{
+    display:block;
+    color:#16813e;
+    font-weight:900;
+    margin:14px 0;
+}
+
+.add-button{
+    width:100%;
+    padding:12px;
+    border:0;
+    border-radius:12px;
+    background:#eeeaff;
+    color:#5745d1;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.add-button:hover{
+    transform:translateY(-2px);
+}
+
+.add-button.selected{
+    background:#159447;
+    color:white;
+}
+
+/* =====================================================
+   CARROS
+===================================================== */
+
+.car-section{
+    margin-top:40px;
+    padding-top:35px;
+    border-top:2px solid #eee;
+}
+
+.car-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:20px;
+}
+
+.car-card{
+    border:2px solid #eee;
+    padding:20px;
+    border-radius:22px;
+    background:white;
+    transition:.25s;
+}
+
+.car-card:hover{
+    border-color:#7766eb;
+    transform:translateY(-4px);
+}
+
+.car-icon{
+    height:130px;
+    border-radius:16px;
+    background:
+    linear-gradient(
+        135deg,
+        #eeeaff,
+        #fff0f3
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:65px;
+    margin-bottom:17px;
+}
+
+.car-card p{
+    color:#777;
+    line-height:1.5;
+    margin-top:7px;
+}
+
+.car-tags{
+    margin:15px 0;
+}
+
+.tag{
+    display:inline-block;
+    background:#f0eeff;
+    color:#5745d1;
+    padding:7px 9px;
+    border-radius:8px;
+    margin:3px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.car-price{
+    color:#16813e;
+    font-weight:900;
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+/* =====================================================
+   ITINERÁRIO
+===================================================== */
+
+.day{
+    border:1px solid #eee;
+    border-radius:22px;
+    overflow:hidden;
+    margin-bottom:25px;
+    background:white;
+    box-shadow:0 8px 25px rgba(0,0,0,.04);
+}
+
+.day-header{
+    color:white;
+    padding:21px;
+    background:linear-gradient(
+        135deg,
+        #5b49e8,
+        #806cf0
+    );
+}
+
+.day-header h3{
+    font-size:21px;
+}
+
+.day-header p{
+    margin-top:5px;
+    opacity:.85;
+}
+
+.activity{
+    padding:20px;
+    display:flex;
+    gap:15px;
+    border-bottom:1px solid #eee;
+}
+
+.activity:last-child{
+    border-bottom:0;
+}
+
+.activity-icon{
+    min-width:52px;
+    height:52px;
+    border-radius:14px;
+    background:#f0eeff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.activity h4{
+    font-size:16px;
+}
+
+.activity p{
+    color:#777;
+    margin-top:6px;
+    line-height:1.5;
+}
+
+/* =====================================================
+   CUSTOS
+===================================================== */
+
+.cost-box{
+    margin-top:30px;
+    padding:28px;
+    border-radius:22px;
+    background:
+    linear-gradient(
+        135deg,
+        #f0eeff,
+        #fff0f3
+    );
+}
+
+.cost-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.cost{
+    background:white;
+    padding:16px;
+    border-radius:14px;
+}
+
+.cost span{
+    color:#777;
+    font-size:13px;
+}
+
+.cost strong{
+    display:block;
+    margin-top:7px;
+    color:#5745d1;
+}
+
+.total{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid #ddd;
+}
+
+.total strong{
+    display:block;
+    font-size:32px;
+    color:#5745d1;
+    margin-top:5px;
+}
+
+/* =====================================================
+   TRADUTOR
+===================================================== */
+
+.translator-box{
+    display:grid;
+    grid-template-columns:1fr 130px 1fr;
+    gap:20px;
+    align-items:center;
+}
+
+textarea{
+    width:100%;
+    height:170px;
+    padding:17px;
+    border:2px solid #eee;
+    border-radius:15px;
+    resize:none;
+    outline:none;
+    font-size:15px;
+}
+
+textarea:focus{
+    border-color:#5b49e8;
+}
+
+.translation{
+    height:170px;
+    background:#f4f2ff;
+    padding:20px;
+    border-radius:15px;
+}
+
+.translation small{
+    color:#777;
+}
+
+.translation p{
+    margin-top:15px;
+    line-height:1.6;
+    font-weight:700;
+}
+
+.translate-button{
+    border:0;
+    background:#5b49e8;
+    color:white;
+    padding:16px 10px;
+    border-radius:13px;
+    cursor:pointer;
+    font-weight:900;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:#28253e;
+    color:white;
+    text-align:center;
+    padding:45px;
+    margin-top:70px;
+}
+
+.footer-logo{
+    font-size:28px;
+    font-weight:900;
+}
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:900px){
+
+    .form-grid,
+    .place-grid,
+    .car-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cost-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:650px){
+
+    header{
+        padding:0 20px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        min-height:500px;
+        padding:90px 20px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .form-grid,
+    .place-grid,
+    .car-grid,
+    .translator-box{
+        grid-template-columns:1fr;
+    }
+
+    .cost-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .country-info{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+        ✈️ Viaja<span>í</span>
+    </div>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#resultado">Explorar</a>
+        <a href="#roteiro">Roteiro</a>
+        <a href="#tradutor">Tradutor</a>
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🌎 Planeje. Explore. Viva.
+        </div>
+
+        <h1>
+            Seu mundo<br>
+            <span>começa aqui.</span>
+        </h1>
+
+        <p>
+            Escolha um destino, defina seu orçamento,
+            encontre lugares incríveis e monte seu
+            roteiro personalizado.
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="container">
+
+<!-- =====================================================
+     FORMULÁRIO
+===================================================== -->
+
+<section class="card">
+
+    <h2 class="card-title">
+        ✨ Planeje sua viagem
+    </h2>
+
+    <p class="subtitle">
+        Conte como você quer viajar e descubra experiências
+        incríveis para o seu destino.
+    </p>
+
+    <div class="form-grid">
+
+        <div class="field">
+
+            <label>🌎 País</label>
+
+            <select id="country">
+
+                <option value="">
+                    Selecione um país
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>📅 Quantos dias?</label>
+
+            <input
+                type="number"
+                id="days"
+                min="1"
+                placeholder="Ex: 7"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>💰 Orçamento</label>
+
+            <input
+                type="number"
+                id="budget"
+                min="1"
+                placeholder="Ex: 5000"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>❤️ Tipo de viagem</label>
+
+            <select id="style">
+
+                <option>Cultura</option>
+                <option>Aventura</option>
+                <option>Família</option>
+                <option>Romântica</option>
+                <option>Natureza</option>
+                <option>Gastronomia</option>
+                <option>Luxo</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="categories">
+
+            <h3>
+                🎯 O que você quer fazer?
+            </h3>
+
+            <div class="category-list">
+
+                <label class="category">
+                    <input type="checkbox" value="passeios">
+                    🎡 Passeios
+                </label>
+
+                <label class="category">
+                    <input type="checkbox" value="parques">
+                    🌳 Parques
+                </label>
+
+                <label class="category">
+                    <input type="checkbox" value="museus">
+                    🏛️ Museus
+                </label>
+
+                <label class="category">
+                    <input type="checkbox" value="shopping">
+                    🛍️ Shoppings
+                </label>
+
+                <label class="category">
+                    <input type="checkbox" value="gastronomia">
+                    🍝 Gastronomia
+                </label>
+
+                <label class="category">
+                    <input type="checkbox" value="carros">
+                    🚗 Alugar carro
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="main-button"
+            onclick="searchCountry()"
+        >
+            🔎 Explorar destino
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULTADO
+===================================================== -->
+
+<section id="resultado">
+
+    <div class="country-info">
+
+        <h2 id="countryTitle"></h2>
+
+        <p id="countryDescription"></p>
+
+    </div>
+
+    <div id="places"></div>
+
+    <button
+        class="main-button"
+        onclick="createItinerary()"
+    >
+        🗺️ Criar meu roteiro
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     ROTEIRO
+===================================================== -->
+
+<section class="card" id="roteiro">
+
+    <h2 class="card-title">
+        🗺️ Seu roteiro personalizado
+    </h2>
+
+    <p class="subtitle">
+        Manhã, tarde e noite organizadas para você.
+    </p>
+
+    <div id="itinerary"></div>
+
+    <div class="cost-box">
+
+        <h2>💰 Estimativa de custos</h2>
+
+        <div class="cost-grid">
+
+            <div class="cost">
+                <span>🏨 Hospedagem</span>
+                <strong id="hotel">R$ 0</strong>
+            </div>
+
+            <div class="cost">
+                <span>🍝 Alimentação</span>
+                <strong id="food">R$ 0</strong>
+            </div>
+
+            <div class="cost">
+                <span>🚕 Transporte</span>
+                <strong id="transport">R$ 0</strong>
+            </div>
+
+            <div class="cost">
+                <span>🎟️ Passeios</span>
+                <strong id="tours">R$ 0</strong>
+            </div>
+
+            <div class="cost">
+                <span>🚗 Carro</span>
+                <strong id="car">R$ 0</strong>
+            </div>
+
+        </div>
+
+        <div class="total">
+
+            Total estimado:
+
+            <strong id="total">
+                R$ 0
+            </strong>
+
+            <p id="budgetMessage"></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRADUTOR
+===================================================== -->
+
+<section class="card" id="tradutor">
+
+    <h2 class="card-title">
+        🗣️ Tradutor de viagem
+    </h2>
+
+    <p class="subtitle">
+        Digite uma frase em português e traduza para
+        o idioma do seu destino.
+    </p>
+
+    <div class="translator-box">
+
+        <textarea
+            id="text"
+            placeholder="Ex: Onde fica o banheiro?"
+        ></textarea>
+
+        <button
+            class="translate-button"
+            onclick="translateText()"
+        >
+            ✨ Traduzir
+        </button>
+
+        <div class="translation">
+
+            <small>
+                Tradução:
+            </small>
+
+            <p id="translation">
+                A tradução aparecerá aqui.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-logo">
+        ✈️ Viajaí 🌎
+    </div>
+
+    <br>
+
+    Seu companheiro inteligente de viagens.
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   PAÍSES
+===================================================== */
+
+const countries = [
+
+"Afeganistão","África do Sul","Albânia","Alemanha",
+"Andorra","Angola","Antígua e Barbuda","Arábia Saudita",
+"Argélia","Argentina","Armênia","Austrália","Áustria",
+"Azerbaijão","Bahamas","Bahrein","Bangladesh","Barbados",
+"Bélgica","Belize","Benim","Bolívia","Botsuana","Brasil",
+"Brunei","Bulgária","Burkina Faso","Burundi","Butão",
+"Cabo Verde","Camarões","Camboja","Canadá","Catar",
+"Cazaquistão","Chile","China","Chipre","Colômbia",
+"Costa Rica","Croácia","Cuba","Dinamarca","Egito",
+"El Salvador","Emirados Árabes Unidos","Equador","Eslováquia",
+"Eslovênia","Espanha","Estados Unidos","Estônia","Etiópia",
+"Fiji","Filipinas","Finlândia","França","Gabão","Gana",
+"Geórgia","Grécia","Guatemala","Guiana","Guiné","Haiti",
+"Honduras","Hungria","Índia","Indonésia","Irã","Iraque",
+"Irlanda","Islândia","Israel","Itália","Jamaica","Japão",
+"Jordânia","Laos","Letônia","Líbano","Libéria","Líbia",
+"Liechtenstein","Lituânia","Luxemburgo","Madagascar",
+"Malásia","Maldivas","Mali","Malta","Marrocos","Maurício",
+"México","Mônaco","Mongólia","Montenegro","Moçambique",
+"Moldávia","Mianmar","Namíbia","Nepal","Nicarágua",
+"Nigéria","Noruega","Nova Zelândia","Omã","Países Baixos",
+"Panamá","Papua-Nova Guiné","Paquistão","Paraguai","Peru",
+"Polônia","Portugal","Quênia","Reino Unido","República Tcheca",
+"Romênia","Rússia","Senegal","Sérvia","Singapura","Síria",
+"Sri Lanka","Suécia","Suíça","Suriname","Tailândia",
+"Taiwan","Tanzânia","Turquia","Ucrânia","Uganda","Uruguai",
+"Uzbequistão","Vaticano","Venezuela","Vietnã","Zâmbia",
+"Zimbábue"
+
+];
+
+
+/* =====================================================
+   CAPITAIS
+===================================================== */
+
+const capitals={
+
+"Brasil":"Brasília",
+"França":"Paris",
+"Itália":"Roma",
+"Japão":"Tóquio",
+"Alemanha":"Berlim",
+"Espanha":"Madri",
+"Portugal":"Lisboa",
+"Reino Unido":"Londres",
+"Estados Unidos":"Washington",
+"Canadá":"Ottawa",
+"Argentina":"Buenos Aires",
+"Chile":"Santiago",
+"Peru":"Lima",
+"Colômbia":"Bogotá",
+"Austrália":"Canberra",
+"China":"Pequim",
+"Índia":"Nova Délhi",
+"Rússia":"Moscou",
+"Egito":"Cairo",
+"Grécia":"Atenas",
+"Turquia":"Ancara",
+"Tailândia":"Bangkok",
+"Coreia do Sul":"Seul",
+"Marrocos":"Rabat",
+"Áustria":"Viena",
+"Suíça":"Berna",
+"Países Baixos":"Amsterdã",
+"Noruega":"Oslo",
+"Suécia":"Estocolmo",
+"Dinamarca":"Copenhague",
+"Finlândia":"Helsinque",
+"Irlanda":"Dublin",
+"Islândia":"Reykjavík",
+"Polônia":"Varsóvia",
+"República Tcheca":"Praga",
+"Croácia":"Zagreb",
+"Emirados Árabes Unidos":"Abu Dhabi",
+"Israel":"Jerusalém",
+"África do Sul":"Pretória",
+"Quênia":"Nairóbi",
+"Nigéria":"Abuja",
+"Nova Zelândia":"Wellington"
+
+};
+
+
+/* =====================================================
+   FOTOS REAIS
+===================================================== */
+
+const photos={
+
+"Brasil":[
+"https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1544989164-31dc3c645987?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1516306580123-e6e52b73b7ea?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=1000&q=90"
+],
+
+"França":[
+"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1503917988258-f87a78e3c995?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Itália":[
+"https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Japão":[
+"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Estados Unidos":[
+"https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Alemanha":[
+"https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1609920658906-8223bd289001?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Espanha":[
+"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1558642084-fd07fae5282e?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Portugal":[
+"https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1580323956656-26bbb12043a8?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Grécia":[
+"https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1000&q=90"
+],
+
+"Austrália":[
+"https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d1?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1528072164453-f4e8ef0d475a?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1494783367193-149034c05e8f?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1549180030-48bf079fb38a?auto=format&fit=crop&w=1000&q=90"
+],
+
+"China":[
+"https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1511317559916-56d5ddb62563?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1537531383496-f4749b8031e7?auto=format&fit=crop&w=1000&q=90",
+"https://images.unsplash.com/photo-1547981609-4b6bf67f8b4b?auto=format&fit=crop&w=1000&q=90"
+]
+
+};
+
+
+/* =====================================================
+   DADOS DOS PONTOS TURÍSTICOS
+===================================================== */
+
+const specialPlaces={
+
+"Brasil":{
+
+passeios:[
+["Cristo Redentor","Um dos maiores símbolos do Brasil.",120,"✝️"],
+["Pão de Açúcar","Vista espetacular do Rio de Janeiro.",180,"🚡"],
+["Cataratas do Iguaçu","Uma das maiores maravilhas naturais do mundo.",100,"💦"],
+["Pelourinho","Centro histórico de Salvador.",0,"🏘️"],
+["Avenida Paulista","Um dos cartões-postais de São Paulo.",0,"🏙️"]
+],
+
+parques:[
+["Parque Nacional da Tijuca","Floresta tropical dentro do Rio.",0,"🌳"],
+["Ibirapuera","Um dos parques urbanos mais famosos do Brasil.",0,"🌳"],
+["Jardim Botânico","Área verde histórica.",20,"🌺"],
+["Parque Nacional do Iguaçu","Natureza e cachoeiras.",100,"🌲"],
+["Lençóis Maranhenses","Dunas e lagoas de águas cristalinas.",80,"🏜️"]
+],
+
+museus:[
+["MASP","Museu de arte na Avenida Paulista.",50,"🎨"],
+["Museu do Amanhã","Ciência, tecnologia e futuro.",40,"🚀"],
+["Museu Imperial","História do Brasil.",30,"👑"],
+["Museu da Língua Portuguesa","Cultura e língua brasileira.",20,"📚"],
+["Museu Nacional","História e ciência.",30,"🏛️"]
+]
+
+},
+
+"França":{
+
+passeios:[
+["Torre Eiffel","Principal símbolo de Paris.",45,"🗼"],
+["Arco do Triunfo","Monumento histórico.",20,"🏛️"],
+["Montmartre","Bairro artístico e charmoso.",0,"🎨"],
+["Champs-Élysées","Uma das avenidas mais famosas do mundo.",0,"🛍️"],
+["Palácio de Versalhes","Um dos palácios mais famosos da Europa.",30,"👑"]
+],
+
+museus:[
+["Museu do Louvre","Um dos maiores museus do mundo.",25,"🏛️"],
+["Musée d'Orsay","Famoso pela arte impressionista.",18,"🎨"],
+["Centre Pompidou","Arte moderna e contemporânea.",15,"🖼️"],
+["Musée Rodin","Obras de Auguste Rodin.",14,"🗿"],
+["Orangerie","Conhecido pelas obras de Monet.",16,"🌸"]
+]
+
+},
+
+"Itália":{
+
+passeios:[
+["Coliseu","Grande símbolo da Roma Antiga.",100,"🏛️"],
+["Fontana di Trevi","Uma das fontes mais famosas do mundo.",0,"⛲"],
+["Panteão","Monumento romano histórico.",30,"🏛️"],
+["Fórum Romano","Centro da antiga Roma.",100,"🏺"],
+["Piazza Navona","Uma das praças mais bonitas de Roma.",0,"⛲"]
+],
+
+museus:[
+["Museus do Vaticano","Grande coleção de arte e história.",150,"🏛️"],
+["Galeria Borghese","Arte italiana e esculturas.",90,"🎨"],
+["Museus Capitolinos","Museus históricos de Roma.",70,"🗿"],
+["Museu Nacional Romano","Arqueologia romana.",50,"🏺"],
+["MAXXI","Arte contemporânea.",50,"🖼️"]
+]
+
+},
+
+"Japão":{
+
+passeios:[
+["Monte Fuji","Um dos maiores símbolos do Japão.",0,"🗻"],
+["Templo Senso-ji","Um dos templos mais tradicionais de Tóquio.",0,"⛩️"],
+["Shibuya Crossing","Um dos cruzamentos mais famosos do mundo.",0,"🏙️"],
+["Castelo de Osaka","Castelo histórico japonês.",50,"🏯"],
+["Fushimi Inari","Famoso por seus milhares de portais vermelhos.",0,"⛩️"]
+],
+
+museus:[
+["Museu Nacional de Tóquio","Arte e história japonesa.",50,"🏛️"],
+["Miraikan","Museu de ciência e tecnologia.",40,"🚀"],
+["Museu Ghibli","Universo das animações japonesas.",80,"🎬"],
+["Museu de Kyoto","História e cultura japonesa.",30,"🎨"],
+["Museu da Paz de Hiroshima","Memória histórica.",30,"🕊️"]
+]
+
+},
+
+"Estados Unidos":{
+
+passeios:[
+["Times Square","Um dos lugares mais famosos de Nova York.",0,"🌆"],
+["Estátua da Liberdade","Símbolo dos Estados Unidos.",150,"🗽"],
+["Grand Canyon","Uma das maiores maravilhas naturais.",100,"🏜️"],
+["Golden Gate Bridge","Cartão-postal de San Francisco.",0,"🌉"],
+["Las Vegas Strip","A famosa avenida de Las Vegas.",0,"🌃"]
+],
+
+parques:[
+["Central Park","Grande parque no coração de Manhattan.",0,"🌳"],
+["Yellowstone","Um dos parques nacionais mais famosos.",80,"🏞️"],
+["Yosemite","Montanhas, cachoeiras e florestas.",80,"🏔️"],
+["Grand Canyon National Park","Uma das paisagens mais impressionantes do país.",80,"🏜️"],
+["Zion National Park","Montanhas e trilhas espetaculares.",70,"⛰️"]
+]
+
+}
+
+};
+
+
+/* =====================================================
+   PREENCHER PAÍSES
+===================================================== */
+
+const countrySelect=document.getElementById("country");
+
+countries.forEach(country=>{
+
+    const option=document.createElement("option");
+
+    option.value=country;
+    option.textContent=country;
+
+    countrySelect.appendChild(option);
+
+});
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+let selectedPlaces=[];
+let selectedCar=null;
+let currentCountry="";
+let days=0;
+let budget=0;
+
+
+/* =====================================================
+   GERAR DESTINOS
+===================================================== */
+
+function generatePlaces(country){
+
+    const capital=capitals[country] || "a principal cidade";
+
+    const special=specialPlaces[country] || {};
+
+    return {
+
+        passeios:special.passeios || [
+
+            [
+                `Centro histórico de ${capital}`,
+                `Conheça a história e os principais pontos de ${capital}.`,
+                0,
+                "🏛️"
+            ],
+
+            [
+                `Praça principal de ${capital}`,
+                `Uma região tradicional para conhecer a cidade.`,
+                0,
+                "🏙️"
+            ],
+
+            [
+                `Centro turístico de ${country}`,
+                `Uma das regiões mais procuradas pelos visitantes.`,
+                0,
+                "📍"
+            ],
+
+            [
+                `Mirante de ${capital}`,
+                `Vista panorâmica da região.`,
+                30,
+                "🌆"
+            ],
+
+            [
+                `Passeio cultural`,
+                `Uma experiência para conhecer a cultura local.`,
+                25,
+                "🎭"
+            ]
+
+        ],
+
+        parques:special.parques || [
+
+            [
+                `Parque central de ${capital}`,
+                `Área verde para caminhar e relaxar.`,
+                0,
+                "🌳"
+            ],
+
+            [
+                `Jardim botânico de ${country}`,
+                `Conheça plantas e natureza local.`,
+                20,
+                "🌺"
+            ],
+
+            [
+                `Parque nacional`,
+                `Uma opção para entrar em contato com a natureza.`,
+                40,
+                "🏞️"
+            ],
+
+            [
+                `Reserva natural`,
+                `Paisagens e natureza da região.`,
+                35,
+                "🌲"
+            ],
+
+            [
+                `Parque urbano`,
+                `Lugar para descansar durante o roteiro.`,
+                0,
+                "🌿"
+            ]
+
+        ],
+
+        museus:special.museus || [
+
+            [
+                `Museu Nacional de ${country}`,
+                `Conheça a história e a cultura do país.`,
+                30,
+                "🏛️"
+            ],
+
+            [
+                `Museu de História de ${capital}`,
+                `Exposições sobre a história local.`,
+                25,
+                "🏺"
+            ],
+
+            [
+                `Museu de Arte`,
+                `Obras de artistas e movimentos locais.`,
+                30,
+                "🎨"
+            ],
+
+            [
+                `Museu de Cultura`,
+                `Uma experiência sobre tradições locais.`,
+                20,
+                "🖼️"
+            ],
+
+            [
+                `Galeria Nacional`,
+                `Arte e patrimônio cultural.`,
+                25,
+                "🗿"
+            ]
+
+        ],
+
+        shopping:[
+
+            [
+                `Shopping Central de ${capital}`,
+                `Centro comercial com lojas e restaurantes.`,
+                0,
+                "🛍️"
+            ],
+
+            [
+                `Mercado Central`,
+                `Ideal para conhecer produtos locais.`,
+                0,
+                "🛒"
+            ],
+
+            [
+                `Galeria Comercial`,
+                `Lojas e produtos tradicionais.`,
+                0,
+                "🏬"
+            ],
+
+            [
+                `Outlet de ${capital}`,
+                `Opções para compras e souvenirs.`,
+                0,
+                "👟"
+            ],
+
+            [
+                `Rua Comercial`,
+                `Uma das principais regiões de compras.`,
+                0,
+                "👜"
+            ]
+
+        ],
+
+        gastronomia:[
+
+            [
+                `Mercado gastronômico`,
+                `Experimente comidas típicas de ${country}.`,
+                70,
+                "🍜"
+            ],
+
+            [
+                `Restaurantes tradicionais`,
+                `Sabores tradicionais da culinária local.`,
+                80,
+                "🍽️"
+            ],
+
+            [
+                `Mercado de rua`,
+                `Comidas típicas e experiências locais.`,
+                50,
+                "🍢"
+            ],
+
+            [
+                `Bairro gastronômico`,
+                `Uma região cheia de restaurantes.`,
+                90,
+                "🍷"
+            ],
+
+            [
+                `Café tradicional`,
+                `Uma pausa para experimentar sabores locais.`,
+                40,
+                "☕"
+            ]
+
+        ],
+
+        carros:[
+
+            [
+                "Carro Econômico",
+                `Ideal para explorar ${country} gastando menos.`,
+                150,
+                "🚗",
+                "5 pessoas",
+                "Manual"
+            ],
+
+            [
+                "Carro Compacto",
+                "Ótimo para circular pelas cidades.",
+                170,
+                "🚗",
+                "5 pessoas",
+                "Automático"
+            ],
+
+            [
+                "SUV",
+                "Mais espaço e conforto.",
+                260,
+                "🚙",
+                "5 pessoas",
+                "Automático"
+            ],
+
+            [
+                "Sedan Premium",
+                "Conforto para uma viagem sofisticada.",
+                350,
+                "🚘",
+                "5 pessoas",
+                "Automático"
+            ],
+
+            [
+                "Minivan",
+                "Ideal para famílias e grupos.",
+                380,
+                "🚐",
+                "7 pessoas",
+                "Automático"
+            ]
+
+        ]
+
+    };
+
+}
+
+
+/* =====================================================
+   PESQUISAR
+===================================================== */
+
+function searchCountry(){
+
+    currentCountry=document.getElementById("country").value;
+
+    days=Number(document.getElementById("days").value);
+
+    budget=Number(document.getElementById("budget").value);
+
+    if(!currentCountry){
+
+        alert("Escolha um país.");
+
+        return;
+    }
+
+    if(!days || days<1){
+
+        alert("Informe quantos dias você terá.");
+
+        return;
+    }
+
+    if(!budget || budget<1){
+
+        alert("Informe seu orçamento.");
+
+        return;
+    }
+
+    selectedPlaces=[];
+    selectedCar=null;
+
+    const capital=capitals[currentCountry] || "uma das principais cidades";
+
+    document.getElementById("countryTitle").innerText=
+        "🌎 "+currentCountry;
+
+    document.getElementById("countryDescription").innerText=
+        `Destino escolhido: ${currentCountry}. Uma sugestão inicial é conhecer ${capital} e depois explorar outras regiões do país.`;
+
+    renderPlaces();
+
+    document.getElementById("resultado").style.display="block";
+
+    document.getElementById("resultado").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   RENDERIZAR LOCAIS
+===================================================== */
+
+function renderPlaces(){
+
+    const categories=[
+        ...document.querySelectorAll(".category input:checked")
+    ].map(item=>item.value);
+
+    const data=generatePlaces(currentCountry);
+
+    const container=document.getElementById("places");
+
+    container.innerHTML="";
+
+    const names={
+
+        passeios:"🎡 Passeios",
+
+        parques:"🌳 Parques",
+
+        museus:"🏛️ Museus",
+
+        shopping:"🛍️ Shoppings",
+
+        gastronomia:"🍝 Gastronomia"
+
+    };
+
+    categories.forEach(category=>{
+
+        if(category==="carros") return;
+
+        const places=data[category];
+
+        if(!places) return;
+
+        let html=`
+
+        <div class="category-block">
+
+            <h2>${names[category]}</h2>
+
+            <div class="place-grid">
+
+        `;
+
+        places.forEach((place,index)=>{
+
+            const selected=selectedPlaces.some(
+                item=>item.name===place[0]
+            );
+
+            const image=getPlaceImage(
+                currentCountry,
+                index
+            );
+
+            html+=`
+
+            <div class="place">
+
+                <div class="place-image">
+
+                    <img
+                        src="${image}"
+                        alt="${place[0]}"
+                        loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80'"
+                    >
+
+                    <div class="image-overlay"></div>
+
+                </div>
+
+                <div class="place-body">
+
+                    <h3>${place[0]}</h3>
+
+                    <p>${place[1]}</p>
+
+                    <span class="price">
+
+                        ${
+                            place[2]===0
+                            ?
+                            "🆓 Gratuito"
+                            :
+                            "🎟️ "+money(place[2])
+                        }
+
+                    </span>
+
+                    <button
+                        class="add-button ${selected?"selected":""}"
+                        onclick="togglePlace('${category}',${index})"
+                    >
+
+                        ${
+                            selected
+                            ?
+                            "✓ Adicionado"
+                            :
+                            "+ Adicionar"
+                        }
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+        html+=`
+
+            </div>
+
+        </div>
+
+        `;
+
+        container.innerHTML+=html;
+
+    });
+
+    if(categories.includes("carros")){
+
+        renderCars(data.carros);
+
+    }
+
+}
+
+
+/* =====================================================
+   IMAGEM DO PONTO TURÍSTICO
+===================================================== */
+
+function getPlaceImage(country,index){
+
+    if(photos[country] && photos[country][index]){
+
+        return photos[country][index];
+
+    }
+
+    const capital=capitals[country] || country;
+
+    return `
+    https://source.unsplash.com/1000x700/?${encodeURIComponent(
+        capital+", "+country+", travel, landmark"
+    )}
+    `;
+
+}
+
+
+/* =====================================================
+   CARROS
+===================================================== */
+
+function renderCars(cars){
+
+    let html=`
+
+    <div class="car-section">
+
+        <h2>🚗 Carros para alugar</h2>
+
+        <p class="subtitle">
+            Escolha seu transporte para explorar
+            ${currentCountry}.
+        </p>
+
+        <div class="car-grid">
+
+    `;
+
+    cars.forEach((car,index)=>{
+
+        const selected=selectedCar===index;
+
+        html+=`
+
+        <div class="car-card">
+
+            <div class="car-icon">
+                ${car[3]}
+            </div>
+
+            <h3>${car[0]}</h3>
+
+            <p>${car[1]}</p>
+
+            <div class="car-tags">
+
+                <span class="tag">
+                    👥 ${car[4]}
+                </span>
+
+                <span class="tag">
+                    ⚙️ ${car[5]}
+                </span>
+
+            </div>
+
+            <div class="car-price">
+                ${money(car[2])} / dia
+            </div>
+
+            <button
+                class="add-button ${selected?"selected":""}"
+                onclick="selectCar(${index})"
+            >
+
+                ${
+                    selected
+                    ?
+                    "✓ Carro escolhido"
+                    :
+                    "🚗 Escolher carro"
+                }
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    html+=`
+
+        </div>
+
+    </div>
+
+    `;
+
+    document.getElementById("places").innerHTML+=html;
+
+}
+
+
+/* =====================================================
+   SELECIONAR LOCAL
+===================================================== */
+
+function togglePlace(category,index){
+
+    const place=
+        generatePlaces(currentCountry)[category][index];
+
+    const existing=
+        selectedPlaces.findIndex(
+            item=>item.name===place[0]
+        );
+
+    if(existing>=0){
+
+        selectedPlaces.splice(existing,1);
+
+    }else{
+
+        selectedPlaces.push({
+
+            name:place[0],
+
+            description:place[1],
+
+            price:place[2],
+
+            icon:place[3]
+
+        });
+
+    }
+
+    renderPlaces();
+
+}
+
+
+/* =====================================================
+   CARRO
+===================================================== */
+
+function selectCar(index){
+
+    if(selectedCar===index){
+
+        selectedCar=null;
+
+    }else{
+
+        selectedCar=index;
+
+    }
+
+    renderPlaces();
+
+}
+
+
+/* =====================================================
+   CRIAR ROTEIRO
+===================================================== */
+
+function createItinerary(){
+
+    if(
+        selectedPlaces.length===0 &&
+        selectedCar===null
+    ){
+
+        alert(
+            "Escolha pelo menos um lugar ou carro."
+        );
+
+        return;
+    }
+
+    const itinerary=
+        document.getElementById("itinerary");
+
+    itinerary.innerHTML="";
+
+    for(let day=1;day<=days;day++){
+
+        const start=(day-1)*3;
+
+        const dayPlaces=
+            selectedPlaces.slice(start,start+3);
+
+        let html=`
+
+        <div class="day">
+
+            <div class="day-header">
+
+                <h3>📅 Dia ${day}</h3>
+
+                <p>${currentCountry}</p>
+
+            </div>
+
+            <div class="activity">
+
+                <div class="activity-icon">☕</div>
+
+                <div>
+
+                    <h4>
+                        08:00 — Café da manhã
+                    </h4>
+
+                    <p>
+                        Comece o dia experimentando
+                        uma especialidade local.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        if(dayPlaces[0]){
+
+            html+=activityHTML(
+                "09:30",
+                dayPlaces[0]
+            );
+
+        }
+
+        html+=`
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    🍽️
+                </div>
+
+                <div>
+
+                    <h4>
+                        12:30 — Almoço
+                    </h4>
+
+                    <p>
+                        Experimente a culinária
+                        tradicional do destino.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        if(dayPlaces[1]){
+
+            html+=activityHTML(
+                "14:30",
+                dayPlaces[1]
+            );
+
+        }
+
+        html+=`
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    ☕
+                </div>
+
+                <div>
+
+                    <h4>
+                        17:00 — Pausa
+                    </h4>
+
+                    <p>
+                        Tempo livre para fotos,
+                        descanso e compras.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        if(dayPlaces[2]){
+
+            html+=activityHTML(
+                "18:00",
+                dayPlaces[2]
+            );
+
+        }
+
+        html+=`
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    🍷
+                </div>
+
+                <div>
+
+                    <h4>
+                        20:00 — Jantar
+                    </h4>
+
+                    <p>
+                        Experimente um restaurante
+                        recomendado da região.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    🌙
+                </div>
+
+                <div>
+
+                    <h4>
+                        21:30 — Passeio noturno
+                    </h4>
+
+                    <p>
+                        Aproveite a cidade iluminada.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+        itinerary.innerHTML+=html;
+
+    }
+
+    calculateCosts();
+
+    document.getElementById("roteiro").style.display="block";
+
+    document.getElementById("tradutor").style.display="block";
+
+    document.getElementById("roteiro").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   ATIVIDADE
+===================================================== */
+
+function activityHTML(time,place){
+
+    return `
+
+    <div class="activity">
+
+        <div class="activity-icon">
+            ${place.icon}
+        </div>
+
+        <div>
+
+            <h4>
+                ${time} — ${place.name}
+            </h4>
+
+            <p>
+                ${place.description}
+            </p>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   CUSTOS
+===================================================== */
+
+function calculateCosts(){
+
+    const hotel=days*250;
+
+    const food=days*150;
+
+    let transport=days*70;
+
+    let carCost=0;
+
+    if(selectedCar!==null){
+
+        const car=
+            generatePlaces(
+                currentCountry
+            ).carros[selectedCar];
+
+        carCost=car[2]*days;
+
+        transport=0;
+
+    }
+
+    const tours=
+        selectedPlaces.reduce(
+            (sum,item)=>sum+item.price,
+            0
+        );
+
+    const total=
+        hotel+
+        food+
+        transport+
+        tours+
+        carCost;
+
+    document.getElementById("hotel").innerText=
+        money(hotel);
+
+    document.getElementById("food").innerText=
+        money(food);
+
+    document.getElementById("transport").innerText=
+        money(transport);
+
+    document.getElementById("tours").innerText=
+        money(tours);
+
+    document.getElementById("car").innerText=
+        money(carCost);
+
+    document.getElementById("total").innerText=
+        money(total);
+
+    const message=
+        document.getElementById("budgetMessage");
+
+    if(total<=budget){
+
+        message.innerText=
+            "✅ Sua viagem está dentro do orçamento!";
+
+        message.style.color="#16813e";
+
+    }else{
+
+        message.innerText=
+            "⚠️ O roteiro ultrapassa seu orçamento em "+
+            money(total-budget);
+
+        message.style.color="#d64545";
+
+    }
+
+}
+
+
+/* =====================================================
+   DINHEIRO
+===================================================== */
+
+function money(value){
+
+    return value.toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   TRADUTOR
+===================================================== */
+
+const translations={
+
+ingles:{
+
+"onde fica o banheiro?":
+"Where is the bathroom?",
+
+"quanto custa?":
+"How much does it cost?",
+
+"onde fica o hotel?":
+"Where is the hotel?",
+
+"preciso de um táxi.":
+"I need a taxi.",
+
+"preciso de ajuda.":
+"I need help.",
+
+"você fala inglês?":
+"Do you speak English?",
+
+"olá":
+"Hello",
+
+"bom dia":
+"Good morning",
+
+"boa tarde":
+"Good afternoon",
+
+"boa noite":
+"Good evening",
+
+"obrigado":
+"Thank you",
+
+"por favor":
+"Please",
+
+"desculpe":
+"Sorry",
+
+"eu não entendo":
+"I don't understand.",
+
+"onde fica a estação?":
+"Where is the station?",
+
+"onde fica o aeroporto?":
+"Where is the airport?",
+
+"eu gostaria de um quarto":
+"I would like a room",
+
+"quanto custa este produto?":
+"How much does this product cost?",
+
+"me ajude":
+"Help me"
+
+},
+
+espanhol:{
+
+"onde fica o banheiro?":
+"¿Dónde está el baño?",
+
+"quanto custa?":
+"¿Cuánto cuesta?",
+
+"olá":
+"Hola",
+
+"bom dia":
+"Buenos días",
+
+"obrigado":
+"Gracias",
+
+"por favor":
+"Por favor",
+
+"preciso de ajuda.":
+"Necesito ayuda."
+
+},
+
+frances:{
+
+"onde fica o banheiro?":
+"Où sont les toilettes?",
+
+"quanto custa?":
+"Combien ça coûte?",
+
+"olá":
+"Bonjour",
+
+"bom dia":
+"Bonjour",
+
+"obrigado":
+"Merci",
+
+"por favor":
+"S'il vous plaît",
+
+"preciso de ajuda.":
+"J'ai besoin d'aide."
+
+},
+
+italiano:{
+
+"onde fica o banheiro?":
+"Dov'è il bagno?",
+
+"quanto custa?":
+"Quanto costa?",
+
+"olá":
+"Ciao",
+
+"bom dia":
+"Buongiorno",
+
+"obrigado":
+"Grazie",
+
+"por favor":
+"Per favore",
+
+"preciso de ajuda.":
+"Ho bisogno di aiuto."
+
+},
+
+japones:{
+
+"onde fica o banheiro?":
+"トイレはどこですか？",
+
+"quanto custa?":
+"いくらですか？",
+
+"olá":
+"こんにちは",
+
+"bom dia":
+"おはようございます",
+
+"obrigado":
+"ありがとうございます",
+
+"por favor":
+"お願いします",
+
+"preciso de ajuda.":
+"助けが必要です。"
+
+}
+
+};
+
+
+/* =====================================================
+   IDIOMA AUTOMÁTICO
+===================================================== */
+
+function getLanguage(){
+
+    const country=currentCountry;
+
+    if(
+        [
+            "Estados Unidos",
+            "Canadá",
+            "Reino Unido",
+            "Austrália",
+            "Nova Zelândia"
+        ].includes(country)
+    ){
+
+        return "ingles";
+
+    }
+
+    if(
+        [
+            "Espanha",
+            "Argentina",
+            "Chile",
+            "Peru",
+            "Colômbia",
+            "Uruguai",
+            "México"
+        ].includes(country)
+    ){
+
+        return "espanhol";
+
+    }
+
+    if(country==="França"){
+
+        return "frances";
+
+    }
+
+    if(country==="Itália"){
+
+        return "italiano";
+
+    }
+
+    if(country==="Japão"){
+
+        return "japones";
+
+    }
+
+    return "ingles";
+
+}
+
+
+/* =====================================================
+   TRADUZIR
+===================================================== */
+
+function translateText(){
+
+    const input=
+        document.getElementById("text");
+
+    const output=
+        document.getElementById("translation");
+
+    const text=
+        input.value
+        .trim()
+        .toLowerCase();
+
+    if(!text){
+
+        output.innerText=
+            "Digite uma frase para traduzir.";
+
+        return;
+
+    }
+
+    const language=getLanguage();
+
+    const dictionary=
+        translations[language];
+
+    if(dictionary[text]){
+
+        output.innerText=
+            dictionary[text];
+
+        return;
+
+    }
+
+
+    /*
+       Tradução por frases aproximadas
+    */
+
+    const found=
+        Object.keys(dictionary).find(
+            key=>text.includes(key)
+        );
+
+    if(found){
+
+        output.innerText=
+            dictionary[found];
+
+        return;
+
+    }
+
+
+    output.innerText=
+        "Frase ainda não cadastrada. Tente frases como: \"Onde fica o banheiro?\", \"Quanto custa?\" ou \"Preciso de ajuda.\"";
+
+}
+
+</script>
+
+</body>
+</html>
